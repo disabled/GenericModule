@@ -5,6 +5,10 @@
 import UIKit
 
 open class ViewController<ViewModel: GenericModule.ViewModel, ViewInput, Output>: UIViewController, View {
+    open class var nib: ViewNib {
+        return .init(name: nil, bundle: nil)
+    }
+
     public var output: Output
     public var viewModel: ViewModel
     private var viewOutput: ViewOutput
@@ -18,7 +22,7 @@ open class ViewController<ViewModel: GenericModule.ViewModel, ViewInput, Output>
             fatalError("`\(type(of: output))` does not conforms to `ViewOutput` protocol")
         }
         self.viewOutput = viewOutput
-        super.init(nibName: nil, bundle: nil)
+        super.init(nibName: Self.nib.name, bundle: Self.nib.bundle)
     }
 
     public required init?(coder: NSCoder) {
