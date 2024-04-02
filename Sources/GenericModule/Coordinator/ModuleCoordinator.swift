@@ -6,25 +6,24 @@ import UIKit
 
 public typealias PresentableModule<P: ModulePresenter> = Module<P> where P.View.ViewModel == P.ViewModel,
                                                                          P.ViewModel.ViewModelDelegate == P.ViewModelDelegate,
-                                                                         P.View: UIViewController,
-                                                                         P.Input: AnyObject
+                                                                         P.View: UIViewController
 
 open class ModuleCoordinator<M: PresentableModule<P>,
                              P: ModulePresenter,
                              C: ModulePresentationContext>: Coordinator<C.V> {
-    open weak var moduleInput: P.Input?
+    private weak var _moduleInput: AnyObject?
+    open var moduleInput: P.Input? {
+        return _moduleInput as? P.Input
+    }
+
     open var presentationContext: C = .init()
 
     @discardableResult
     open func start(with state: M.State, dependencies: P.Dependencies) -> M {
         let module = M.init(state: state, dependencies: dependencies, output: self as? P.Output)
-        moduleInput = module.input
-        show(module.viewController)
+        _moduleInput = module.input as AnyObject
+        presentationContext.present(module.viewController, in: rootViewController)
         return module
-    }
-
-    open func show(_ viewController: UIViewController) {
-        presentationContext.present(viewController, in: rootViewController)
     }
 }
 

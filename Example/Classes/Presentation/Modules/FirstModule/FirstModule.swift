@@ -5,7 +5,7 @@
 import Foundation
 import GenericModule
 
-@objc protocol FirstModuleInput {
+protocol FirstModuleInput {
     func doSomeSpecificStuff()
 }
 
