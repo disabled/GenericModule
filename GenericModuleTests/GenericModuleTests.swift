@@ -112,21 +112,21 @@ class GenericModuleTests: XCTestCase {
 
     func testNonConformableViewOutput() {
         //swiftlint:disable:next line_length
-        expectFatalError(expectedMessage: "`\(DummyViewOutput.self)` does not conforms to `ViewOutput` protocol") {
+        expectFatalError(expectedMessage: "`\(DummyViewOutput.self)` does not conform to `ViewOutput` protocol") {
             self.coordinator.startNonConformableViewOutput()
         }
     }
 
     func testBrokenViewOutput() {
         //swiftlint:disable:next line_length
-        expectFatalError(expectedMessage: "`\(BrokenViewOutputPresenter.self)` does not conforms to `\(DummyViewController.self)` output protocol.") {
+        expectFatalError(expectedMessage: "`\(BrokenViewOutputPresenter.self)` does not conform to `\(DummyViewController.self)` output protocol.") {
             self.coordinator.startBrokenViewOutput()
         }
     }
 
     func testBrokenViewInput() {
         //swiftlint:disable:next line_length
-        expectFatalError(expectedMessage: "`\(BrokenViewInputController.self)` does not conforms to `\(BrokenViewInputController.self)` input.") {
+        expectFatalError(expectedMessage: "`\(BrokenViewInputController.self)` does not conform to `\(BrokenViewInputController.self)` input.") {
             self.coordinator.startBrokenViewInput()
             guard let module = self.coordinator.brokenViewInputModule,
                   let moduleInput = module.input as? BrokenViewInputModule.BasePresenter else {
@@ -138,7 +138,7 @@ class GenericModuleTests: XCTestCase {
     }
 
     func testBrokenModuleInput() {
-        expectFatalError(expectedMessage: "`\(BrokenModuleInputPresenter.self)` does not conforms to `\(DummyModuleInput.self)`.") {
+        expectFatalError(expectedMessage: "`\(BrokenModuleInputPresenter.self)` does not conform to `\(DummyModuleInput.self)`.") {
             self.coordinator.startBrokenModuleInput()
             guard let module = self.coordinator.brokenModuleInputModule else {
                 XCTAssert(false)
@@ -150,7 +150,7 @@ class GenericModuleTests: XCTestCase {
 
     func testBrokenPresenter() {
         //swiftlint:disable:next line_length
-        expectFatalError(expectedMessage: "`\(BrokenPresenterPresenter.self)` does not conforms to `\(BrokenPresenterModule.BasePresenter.self)`.") {
+        expectFatalError(expectedMessage: "`\(BrokenPresenterPresenter.self)` does not conform to `\(BrokenPresenterModule.BasePresenter.self)`.") {
             _ = BrokenPresenterModule(state: .init(), dependencies: [])
         }
     }

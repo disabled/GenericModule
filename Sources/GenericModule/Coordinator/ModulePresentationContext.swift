@@ -27,11 +27,27 @@ open class ModalPresentationContext: ModulePresentationContext {
 }
 
 open class ModalNavigationPresentationContext: ModalPresentationContext {
-    open var navigationController: UINavigationController = .init()
+    private var retainedNavigationController: UINavigationController? = .init()
+    private weak var weakNavigationController: UINavigationController?
+
+    open var navigationController: UINavigationController {
+        get {
+            return weakNavigationController ?? retainedNavigationController ?? .init()
+        }
+        set {
+            retainedNavigationController = newValue
+        }
+    }
 
     open override func present(_ target: UIViewController, in rootViewController: ModalPresentationContext.V) {
         navigationController.viewControllers = [target]
         super.present(navigationController, in: rootViewController)
+        relinquishNavigationControllerOwnership()
+    }
+
+    private func relinquishNavigationControllerOwnership() {
+        weakNavigationController = retainedNavigationController
+        retainedNavigationController = nil
     }
 }
 

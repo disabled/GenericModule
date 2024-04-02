@@ -21,6 +21,10 @@ open class ModuleCoordinator<M: PresentableModule<P>,
     @discardableResult
     open func start(with state: M.State, dependencies: P.Dependencies) -> M {
         let module = M.init(state: state, dependencies: dependencies, output: self as? P.Output)
+        if module.output == nil {
+            assertionFailure("\(Self.self) does not conform to \(P.Output.self)")
+        }
+
         _moduleInput = module.input as AnyObject
         presentationContext.present(module.viewController, in: rootViewController)
         return module

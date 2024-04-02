@@ -19,7 +19,7 @@ open class ViewController<ViewModel: GenericModule.ViewModel, ViewInput, Output>
         self.viewModel = viewModel
         self.output = output
         guard let viewOutput = output as? ViewOutput else {
-            fatalError("`\(type(of: output))` does not conforms to `ViewOutput` protocol")
+            fatalError("`\(type(of: output))` does not conform to `ViewOutput` protocol")
         }
         self.viewOutput = viewOutput
         super.init(nibName: Self.nib.name, bundle: Self.nib.bundle)

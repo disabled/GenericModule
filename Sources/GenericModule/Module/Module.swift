@@ -18,7 +18,7 @@ open class Module<Presenter: ModulePresenter> where Presenter.View.ViewModel == 
     var presenter: Presenter
     var basePresenter: BasePresenter {
         guard let presenter = self.presenter as? BasePresenter else {
-            fatalError("`\(type(of: self.presenter))` does not conforms to `\(BasePresenter.self)`.")
+            fatalError("`\(type(of: self.presenter))` does not conform to `\(BasePresenter.self)`.")
         }
         return presenter
     }
@@ -26,7 +26,7 @@ open class Module<Presenter: ModulePresenter> where Presenter.View.ViewModel == 
     public var viewController: ViewController
     public var input: Input {
         guard let input = presenter as? Input else {
-            fatalError("`\(type(of: presenter))` does not conforms to `\(Input.self)`.")
+            fatalError("`\(type(of: presenter))` does not conform to `\(Input.self)`.")
         }
         return input
     }
@@ -46,7 +46,7 @@ open class Module<Presenter: ModulePresenter> where Presenter.View.ViewModel == 
         // swiftlint:disable:next explicit_init
         let viewModel = ViewModel.init(delegate: viewModelDelegate)
         guard let viewOutput = presenter as? ViewController.Output else {
-            fatalError("`\(type(of: presenter))` does not conforms to `\(ViewController.self)` output protocol.")
+            fatalError("`\(type(of: presenter))` does not conform to `\(ViewController.self)` output protocol.")
         }
         viewController = ViewController(viewModel: viewModel, output: viewOutput)
         self.presenter = presenter

@@ -41,6 +41,7 @@
 		01D0D3962657AC4500C84896 /* TitleTextState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0180E9CB258B22900061788E /* TitleTextState.swift */; };
 		01D0D3972657AC4500C84896 /* TitleTextViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0180E9CC258B22900061788E /* TitleTextViewModel.swift */; };
 		01D0D3982657AC4500C84896 /* TitleTextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0180E9CD258B22900061788E /* TitleTextViewController.swift */; };
+		559E25B72BBBE1C900B89996 /* ThirdCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 559E25B62BBBE1C900B89996 /* ThirdCoordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -93,6 +94,7 @@
 		0180E9D9258B22900061788E /* FourthModule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FourthModule.swift; sourceTree = "<group>"; };
 		0180E9F9258B236A0061788E /* GenericModule.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GenericModule.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		01D0D3992657B03100C84896 /* FourthPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourthPresenter.swift; sourceTree = "<group>"; };
+		559E25B62BBBE1C900B89996 /* ThirdCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdCoordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -201,6 +203,7 @@
 			children = (
 				0180E9BA258B22900061788E /* AppCoordinator.swift */,
 				0180E9BB258B22900061788E /* FirstCoordinator.swift */,
+				559E25B62BBBE1C900B89996 /* ThirdCoordinator.swift */,
 			);
 			path = Coordinators;
 			sourceTree = "<group>";
@@ -400,6 +403,7 @@
 				01D0D3962657AC4500C84896 /* TitleTextState.swift in Sources */,
 				011F911726579906004A5F91 /* FirstPresenter.swift in Sources */,
 				01D0D3972657AC4500C84896 /* TitleTextViewModel.swift in Sources */,
+				559E25B72BBBE1C900B89996 /* ThirdCoordinator.swift in Sources */,
 				01D0D3982657AC4500C84896 /* TitleTextViewController.swift in Sources */,
 				01145C7526579FDA00E98FB2 /* SecondState.swift in Sources */,
 				01145C7826579FDA00E98FB2 /* TestSectionItemsFactory.swift in Sources */,

@@ -24,7 +24,7 @@ open class Presenter<State,
                        "to \(type(of: self)) or \(Input.self).")
         }
         guard let viewInput = view as? View.ViewInput else {
-            fatalError("`\(View.self)` does not conforms to `\(View.self)` input.")
+            fatalError("`\(View.self)` does not conform to `\(View.self)` input.")
         }
         return viewInput
     }
@@ -89,7 +89,7 @@ open class FactoryPresenter<State,
         factory = .init(dependencies: dependencies)
         super.init(state: state, dependencies: dependencies)
         guard let output = self as? Factory.Output else {
-            fatalError("\(type(of: self)) does not conforms to \(Factory.Output.self)")
+            fatalError("\(type(of: self)) does not conform to \(Factory.Output.self)")
         }
         factory.output = output
     }

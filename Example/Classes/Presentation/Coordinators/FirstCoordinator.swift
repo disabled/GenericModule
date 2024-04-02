@@ -20,15 +20,16 @@ extension FirstCoordinator: FirstModuleOutput {
         let state = TitleTextState(title: "Third",
                                    text: "This is 3-rd view controller")
 
-        let coordinator = ModalNavigationCoordinator<ThirdModule, ThirdPresenter>(rootViewController: rootViewController)
-        coordinator.start(with: state, dependencies: Services).output = self
+        let coordinator = ThirdCoordinator(rootViewController: rootViewController)
+        coordinator.output = self
+        coordinator.start(with: state, dependencies: Services)
         moduleInput.doSomeSpecificStuff()
     }
 }
 
-extension FirstCoordinator: ThirdModuleOutput {
-    func thirdModuleWantsToClose(_ moduleInput: ThirdModuleInput) {
+extension FirstCoordinator: ThirdCoordinatorOutput {
+    func thirdCoordinatorWantsToClose() {
         rootViewController.dismiss(animated: true, completion: nil)
-        self.moduleInput?.doSomeSpecificStuff()
+        moduleInput?.doSomeSpecificStuff()
     }
 }
