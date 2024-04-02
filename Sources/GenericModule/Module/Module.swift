@@ -40,7 +40,7 @@ open class Module<Presenter: ModulePresenter> where Presenter.View.ViewModel == 
         }
     }
 
-    public init(state: State, dependencies: Dependencies, output: Output? = nil) {
+    required public init(state: State, dependencies: Dependencies, output: Output? = nil) {
         let presenter = Presenter(state: state, dependencies: dependencies)
         let viewModelDelegate = presenter.makeViewModelDelegate()
         // swiftlint:disable:next explicit_init

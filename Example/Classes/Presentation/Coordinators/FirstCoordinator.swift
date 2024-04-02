@@ -5,13 +5,8 @@
 import GenericModule
 import UIKit
 
-final class FirstCoordinator: Coordinator<UINavigationController> {
-
-    func start() -> FirstModule {
-        let module = FirstModule(state: .init(), dependencies: Services)
-        module.output = self
-        return module
-    }
+final class FirstCoordinator: NavigationCoordinator<FirstModule, FirstPresenter> {
+    //
 }
 
 extension FirstCoordinator: FirstModuleOutput {
@@ -24,11 +19,9 @@ extension FirstCoordinator: FirstModuleOutput {
     func firstModuleOpenThird(_ moduleInput: FirstModuleInput) {
         let state = TitleTextState(title: "Third",
                                    text: "This is 3-rd view controller")
-        let module = ThirdModule(state: state, dependencies: Services)
-        module.output = self
-        let viewController = module.viewController
-        viewController.modalPresentationStyle = .overFullScreen
-        rootViewController.present(viewController, animated: true, completion: nil)
+
+        let coordinator = ModalNavigationCoordinator<ThirdModule, ThirdPresenter>(rootViewController: rootViewController)
+        coordinator.start(with: state, dependencies: Services).output = self
         moduleInput.doSomeSpecificStuff()
     }
 }
@@ -36,5 +29,6 @@ extension FirstCoordinator: FirstModuleOutput {
 extension FirstCoordinator: ThirdModuleOutput {
     func thirdModuleWantsToClose(_ moduleInput: ThirdModuleInput) {
         rootViewController.dismiss(animated: true, completion: nil)
+        self.moduleInput?.doSomeSpecificStuff()
     }
 }

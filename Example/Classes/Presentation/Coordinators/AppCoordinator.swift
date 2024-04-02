@@ -27,8 +27,8 @@ final class AppCoordinator: Coordinator<UINavigationController> {
 extension AppCoordinator: MainModuleOutput {
 
     func mainModuleOpenFirst(_ moduleInput: MainModuleInput) {
-        let module = FirstCoordinator(rootViewController: rootViewController).start()
-        rootViewController.pushViewController(module.viewController, animated: true)
+        let coordinator = FirstCoordinator(rootViewController: rootViewController)
+        coordinator.start(with: .init(), dependencies: Services)
     }
 
     func mainModuleOpenSecond(_ moduleInput: MainModuleInput) {

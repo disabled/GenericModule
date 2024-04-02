@@ -2,9 +2,10 @@
 //  Copyright © 2021 Rosberry. All rights reserved.
 //
 
+import Foundation
 import GenericModule
 
-protocol FirstModuleInput {
+@objc protocol FirstModuleInput {
     func doSomeSpecificStuff()
 }
 
