@@ -2,6 +2,7 @@
 //  Copyright © 2021 Rosberry. All rights reserved.
 //
 
+@MainActor
 open class Module<Presenter: ModulePresenter> where Presenter.View.ViewModel == Presenter.ViewModel,
                                                     Presenter.ViewModel.ViewModelDelegate == Presenter.ViewModelDelegate {
 

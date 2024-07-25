@@ -2,6 +2,7 @@
 //  Copyright © 2021 Rosberry. All rights reserved.
 //
 
+import Foundation
 import GenericModule
 
 final class FirstPresenter: Presenter<FirstState,
@@ -9,6 +10,16 @@ final class FirstPresenter: Presenter<FirstState,
                                       FirstModuleInput,
                                       FirstModuleOutput,
                                       HasTestService> {
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        Task {
+            try await Task.sleep(nanoseconds: 1_000_000_000)
+            print("I was sleeping for a second but still calling update on main thread, because I'm using MainActor now.")
+            update(force: true, animated: true)
+        }
+    }
 }
 
 extension FirstPresenter: FirstViewModelDelegate {

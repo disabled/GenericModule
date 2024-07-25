@@ -2,6 +2,7 @@
 //  Copyright © 2021 Rosberry. All rights reserved.
 //
 
+@MainActor
 open class Presenter<State,
                      View: GenericModule.View,
                      Input,

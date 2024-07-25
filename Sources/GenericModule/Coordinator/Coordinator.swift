@@ -4,6 +4,7 @@
 
 import UIKit
 
+@MainActor
 open class Coordinator<V: UIViewController>: NSObject {
     open var rootViewController: V
 

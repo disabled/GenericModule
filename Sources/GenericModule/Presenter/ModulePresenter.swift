@@ -2,6 +2,7 @@
 //  Copyright © 2021 Rosberry. All rights reserved.
 //
 
+@MainActor
 public protocol ModulePresenter {
     associatedtype State
     associatedtype View: GenericModule.View
@@ -11,9 +12,8 @@ public protocol ModulePresenter {
     associatedtype Input
     associatedtype ViewModelDelegate
 
-    init(state: State, dependencies: Dependencies)
-
     var output: Output? { get }
 
+    init(state: State, dependencies: Dependencies)
     func makeViewModelDelegate() -> ViewModelDelegate
 }

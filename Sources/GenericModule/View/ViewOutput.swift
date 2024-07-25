@@ -2,6 +2,7 @@
 //  Copyright © 2020 Rosberry. All rights reserved.
 //
 
+@MainActor
 public protocol ViewOutput {
     func viewDidLoad()
     func viewWillAppear()
