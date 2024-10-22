@@ -72,6 +72,7 @@ open class Presenter<State,
     }
 }
 
+@MainActor
 open class FactoryPresenter<State,
                             Factory: SectionItemsFactory,
                             View: GenericModule.View,

@@ -5,6 +5,7 @@
 import GenericModule
 import UIKit
 
+@MainActor
 protocol MainViewOutput {
     func firstButtonEventTriggered()
     func secondButtonEventTriggered()

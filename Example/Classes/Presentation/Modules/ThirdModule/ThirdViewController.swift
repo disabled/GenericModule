@@ -5,10 +5,12 @@
 import GenericModule
 import UIKit
 
+@MainActor
 protocol ThirdViewOutput: ViewOutput {
     func closeEventTriggered()
 }
 
+@MainActor
 protocol ThirdViewInput {
     func printText()
 }

@@ -8,6 +8,6 @@ protocol HasTestService {
     var testService: TestService { get }
 }
 
-protocol TestService {
+protocol TestService: Sendable {
     func array(with count: Int) -> [Int]
 }

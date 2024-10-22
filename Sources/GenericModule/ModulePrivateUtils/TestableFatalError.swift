@@ -22,10 +22,10 @@ public func unreachable() -> Never {
 struct FatalErrorUtil {
 
     // Called by the custom implementation of `fatalError`.
-    static var fatalErrorClosure: (String, StaticString, UInt) -> Void = defaultFatalErrorClosure
+    nonisolated(unsafe) static var fatalErrorClosure: (String, StaticString, UInt) -> Void = defaultFatalErrorClosure
 
     // backup of the original Swift `fatalError`
-    private static let defaultFatalErrorClosure: (String, StaticString, UInt) -> Void = { message, file, line in
+    nonisolated(unsafe) private static let defaultFatalErrorClosure: (String, StaticString, UInt) -> Void = { message, file, line in
         Swift.fatalError(message, file: file, line: line)
     }
 

@@ -4,6 +4,7 @@
 
 import UIKit
 
+@MainActor
 public protocol ModulePresentationContext {
     associatedtype V: UIViewController
     init()

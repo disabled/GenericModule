@@ -5,6 +5,7 @@
 import UIKit
 import Foundation
 
+@MainActor
 public class ViewNib {
     public let name: String?
     public let bundle: Bundle?

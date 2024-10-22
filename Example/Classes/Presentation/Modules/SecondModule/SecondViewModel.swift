@@ -4,6 +4,7 @@
 
 import GenericModule
 
+@MainActor
 protocol SecondViewModelDelegate: AnyObject {
     var state: SecondState { get }
     func makeSectionItems() -> [Int]

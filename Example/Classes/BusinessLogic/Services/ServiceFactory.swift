@@ -3,8 +3,8 @@
 //
 
 // swiftlint:disable:next identifier_name
-var Services = ServiceFactory()
+let Services = ServiceFactory()
 
-final class ServiceFactory: HasTestService {
-    var testService: TestService = TestServiceImpl()
+final class ServiceFactory: Sendable, HasTestService {
+    let testService: TestService = TestServiceImpl()
 }

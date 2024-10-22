@@ -2,6 +2,7 @@
 //  Copyright © 2020 Rosberry. All rights reserved.
 //
 
+@MainActor
 public protocol SectionItemsFactory: AnyObject {
     associatedtype SectionItem
     associatedtype ViewModelDelegate
@@ -15,6 +16,7 @@ public protocol SectionItemsFactory: AnyObject {
     func makeSectionItems(delegate: ViewModelDelegate) -> [SectionItem]
 }
 
+@MainActor
 open class GenericSectionItemsFactory<ViewModelDelegate, SectionItem, Dependencies, Output>: SectionItemsFactory {
 
     private weak var _output: AnyObject?

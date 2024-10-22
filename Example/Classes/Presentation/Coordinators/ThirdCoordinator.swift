@@ -8,6 +8,7 @@
 
 import GenericModule
 
+@MainActor
 protocol ThirdCoordinatorOutput: AnyObject {
     func thirdCoordinatorWantsToClose()
 }

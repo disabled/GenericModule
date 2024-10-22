@@ -4,6 +4,7 @@
 
 import GenericModule
 
+@MainActor
 protocol FirstViewModelDelegate: AnyObject {
     var state: FirstState { get }
     func makeTitle() -> String

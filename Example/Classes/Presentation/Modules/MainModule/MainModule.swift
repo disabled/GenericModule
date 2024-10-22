@@ -4,6 +4,7 @@
 
 import GenericModule
 
+@MainActor
 protocol MainModuleOutput {
     func mainModuleOpenFirst(_ moduleInput: MainModuleInput)
     func mainModuleOpenSecond(_ moduleInput: MainModuleInput)
@@ -11,6 +12,7 @@ protocol MainModuleOutput {
     func mainModuleOpenFourth(_ moduleInput: MainModuleInput)
 }
 
+@MainActor
 protocol MainModuleInput {
 
 }

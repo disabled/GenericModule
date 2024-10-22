@@ -5,11 +5,13 @@
 import GenericModule
 import UIKit
 
+@MainActor
 protocol FirstViewOutput {
     func secondButtonEventTriggered()
     func thirdButtonEventTriggered()
 }
 
+@MainActor
 protocol FirstViewInput {
 
 }

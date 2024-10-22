@@ -5,9 +5,11 @@
 import Foundation
 import GenericModule
 
+@MainActor
 @objc protocol ThirdModuleInput {
 }
 
+@MainActor
 protocol ThirdModuleOutput {
     func thirdModuleWantsToClose(_ moduleInput: ThirdModuleInput)
 }
